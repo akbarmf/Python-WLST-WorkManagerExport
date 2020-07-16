@@ -95,7 +95,7 @@ def exportCap(file):
         elif str(serverTarget) == 'None':
           serverTarget = ''
       
-        exp = 'maxThreadCon,' + str(name) + ',' + str(count) + ',' + str(serverTarget) +'\n'
+        exp = 'capacityConstraint,' + str(name) + ',' + str(count) + ',' + str(serverTarget) +'\n'
         file.write(exp)
   except Exception, e:
     print e
