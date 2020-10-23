@@ -27,7 +27,7 @@ def exportMin(file):
         elif str(serverTarget) == 'None':
           serverTarget = ''
       
-        exp = 'minThreadCon,' + str(minName) + ',' + str(minCount) + ',' + str(serverTarget) +'\n'
+        exp = 'minThreadCon,' + str(minName) + ',' + str(minCount) + ',' + str(serverTarget) + '\n'
         file.write(exp)
   except Exception, e:
     print e
@@ -61,7 +61,7 @@ def exportMax(file):
         elif str(serverTarget) == 'None':
           serverTarget = ''
       
-        exp = 'maxThreadCon,' + str(maxName) + ',' + str(maxCount) + ',' + str(serverTarget) +'\n'
+        exp = 'maxThreadCon,' + str(maxName) + ',' + str(maxCount) + ',' + str(serverTarget) + '\n'
         file.write(exp)
   except Exception, e:
     print e
@@ -165,7 +165,7 @@ def exportFair(file):
         elif str(serverTarget) == 'None':
           serverTarget = ''
       
-        exp = 'resTimeReqClass,' + str(name) + ',' + str(fairShare) + ',' + str(serverTarget) +'\n'
+        exp = 'fairShareReqClass,' + str(name) + ',' + str(fairShare) + ',' + str(serverTarget) +'\n'
         file.write(exp)
 
   except Exception, e:
@@ -198,7 +198,7 @@ def exportCon(file):
         #  fairShare = ''
         if str(serverTarget) == 'None':
           serverTarget = ''
-      
+ 
         exp = 'conReqClass,' + str(name) + ',' + str(serverTarget) +'\n'
         file.write(exp)
 
@@ -248,7 +248,7 @@ def exportWM(file):
           resReqClassStat = 1
 
         if conReqClassStat == 0:
-          reqClass = conReqClassStat
+          reqClass = conReqClass
         elif fairReqClassStat == 0:
           reqClass = fairReqClass
         elif resReqClassStat == 0:
@@ -280,7 +280,7 @@ def exportWM(file):
         if str(serverTarget) == 'None':
           serverTarget = ''
       
-        exp = 'workManager,' + str(name) + ',' + str(max) + ',' + str(min) + ',' + str(reqClass) + ',' + str(capacity) + '\n'
+        exp = 'workManager,' + str(name) + ',' + str(max) + ',' + str(min) + ',' + str(reqClass) + ',' + str(capacity) + ',' + str(serverTarget) + '\n'
         file.write(exp)
   except Exception, e:
     print e
@@ -318,7 +318,7 @@ def main():
     print('----- End of Response Time Request Class -----\n')
     print('======== Export Fair Share Request Class ========')
     exportFair(file)
-    print('----- End of Response Time Request Class -----\n')
+    print('----- End of Fair Share Request Class -----\n')
     print('======== Export Context Request Class ========')
     exportCon(file)
     print('----- End of Context Request Class -----\n')
